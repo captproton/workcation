@@ -1,0 +1,74 @@
+<%= form_with(model: listing) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :beds, class: 'form-label' %>
+      <%= form.number_field :beds, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :baths, class: 'form-label' %>
+      <%= form.number_field :baths, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :plus, class: 'form-label' %>
+      <%= form.check_box :plus, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :rating, class: 'form-label' %>
+      <%= form.number_field :rating, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :price, class: 'form-label' %>
+      <%= form.number_field :price, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :rental_period, class: 'form-label' %>
+      <%= form.text_field :rental_period, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :main_image_caption, class: 'form-label' %>
+      <%= form.text_field :main_image_caption, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :location_id, class: 'form-label' %>
+      <%= form.text_field :location_id, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if listing.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', listing, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if listing.persisted? %>
+      <%= link_to "Cancel", listing, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", listings_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

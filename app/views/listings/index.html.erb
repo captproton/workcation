@@ -1,0 +1,59 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Listings</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_listing_path, class: 'btn btn-primary' do %>
+    Add New Listing
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Title</th>
+            <th>Beds</th>
+            <th>Baths</th>
+            <th>Plus</th>
+            <th>Rating</th>
+            <th>Price</th>
+            <th>Rental period</th>
+            <th>Main image caption</th>
+            <th>Location</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @listings.each do |listing| %>
+        <%= content_tag :tr, id: dom_id(listing), class: dom_class(listing) do %>
+          
+
+                      <td><%= listing.title %></td>
+                      <td><%= listing.beds %></td>
+                      <td><%= listing.baths %></td>
+                      <td><%= listing.plus %></td>
+                      <td><%= listing.rating %></td>
+                      <td><%= listing.price %></td>
+                      <td><%= listing.rental_period %></td>
+                      <td><%= listing.main_image_caption %></td>
+                      <td><%= listing.location %></td>
+          
+          
+            <td><%= link_to 'Show', listing %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

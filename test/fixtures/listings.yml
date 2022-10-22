@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  beds: 1
+  baths: 1
+  plus: false
+  rating: 1
+  price: 1
+  rental_period: MyString
+  main_image_caption: MyString
+  location: one
+
+two:
+  title: MyString
+  beds: 1
+  baths: 1
+  plus: false
+  rating: 1
+  price: 1
+  rental_period: MyString
+  main_image_caption: MyString
+  location: two
